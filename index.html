@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta name="description" content="DBMON AlterNative" />
+  <meta charset="utf-8">
+  <link href="External/dbmon/styles.css" rel="stylesheet" type="text/css" />
+  <title>dbmon (alina)</title>
+</head>
+<body>
+  <db-mon-table id="main-table"></db-mon-table>
+
+  <script src="External/dbmon/lib/jquery-2.1.0.min.js"></script>
+  <script src="External/dbmon/ENV.js"></script>
+  <script src="External/dbmon/lib/memory-stats.js"></script>
+  <script src="External/dbmon/lib/monitor.js"></script>
+  <script src="External/dbmon/ga.js"></script>
+    
+  <script src="External/webcomponents-sd-ce.js"></script>
+  <script src="External/custom-elements-es5-adapter.js"></script>
+
+  <script type="text/javascript" src="External/system.js"></script>
+  <script type="text/javascript">
+      System.config({
+        packages: {
+          App: {
+            defaultExtension: 'js'
+          },
+          External: {
+            defaultExtension: 'js'
+          }
+        }
+      });
+      System.import("App/DbMonTable");
+  </script>
+</body>
+</html>
