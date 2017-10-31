@@ -1,15 +1,15 @@
 ﻿import { Alina } from "./Imports";
 
-export class SuperQuery extends Alina.Renderer {
-  constructor(nodesOrBindings: Node[] | Alina.NodeBinding[], parent: Alina.Renderer) {
-    super(nodesOrBindings, parent);
-  }
-
-  superQuery(selector: string): Alina.ISingleNodeRenderer {
-    return this.query(selector);
-  }
+export interface SuperQuery {
+  superQuery(selector: string): this;
 }
 
-export function SuperExt(renderer: Alina.ISingleNodeRenderer): SuperQuery {
-  return new SuperQuery([renderer.binding], renderer as any);
+export function SuperExt<T extends Alina.Alina>(renderer: T): T & SuperQuery {
+  let result = renderer as T & SuperQuery;
+  result.superQuery = superQuery;
+  return result;
 }
+
+function superQuery(this: Alina.Alina, selector: string): any {
+  return this.query(selector);
+};

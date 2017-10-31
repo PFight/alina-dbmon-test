@@ -14,13 +14,13 @@ interface Sample {
   topFiveQueries: Query[];
 }
 
-function FuncLifeMeaning(root: Alina.ISingleNodeRenderer, value: string) {
+function FuncLifeMeaning(root: Alina.Alina, value: string) {
   root.set(value, 42);
 }
 
 class DbMonTable extends HTMLElement {
   databases: Database[];
-  root: Alina.ISingleNodeRenderer;
+  root: Alina.Alina;
   toggle: boolean;
   inputValue: string = "";
   started: boolean = true;
@@ -31,7 +31,7 @@ class DbMonTable extends HTMLElement {
     this.databases = [];
     // this.template = document.getElementById("component-template");
     this.appendChild(Alina.fromTemplate(this.template));
-    this.root = Alina.Renderer.Create(this);
+    this.root = Alina.Document.create(this);
     this.update();
 
     this.toggle = true;
@@ -79,7 +79,7 @@ class DbMonTable extends HTMLElement {
     this.root.query("input").on(this.toggle, (input) => {
       input.nodeAs<HTMLInputElement>().style.backgroundColor = this.toggle ? "white" : "yellow";
     });
-    this.root.ext(SuperExt).superQuery("input").once((input) => {
+    this.root.findNode("").ext(SuperExt).superQuery("input").once((input) => {
       input.nodeAs<HTMLInputElement>().style.color = "green";
     });
     this.root.showIf("#blink", this.toggle);
@@ -92,8 +92,6 @@ class DbMonTable extends HTMLElement {
       row.set("@dbclass", this.toggle ? "dbtestclass1" : null);
       row.set("@dbclass2", this.toggle ? "dbtestclass2" : "");
       
-      row.findNode("@queries").mount(DbMonQueryList).update(db.lastSample.topFiveQueries);
-
       row.findNode("@queries").mount(DbMonQueryList).update(db.lastSample.topFiveQueries);
     }));
   }

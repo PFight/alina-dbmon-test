@@ -40,8 +40,9 @@
     <TypeScriptCompile Include="External\Alina\AlRepeat.ts" />
     <TypeScriptCompile Include="External\Alina\AlSet.ts" />
     <TypeScriptCompile Include="External\Alina\AlShow.ts" />
-    <TypeScriptCompile Include="External\Alina\Interfaces.ts" />
-    <TypeScriptCompile Include="External\Alina\Renderer.ts" />
+    <TypeScriptCompile Include="External\Alina\Component.ts" />
+    <TypeScriptCompile Include="External\Alina\StandardExtensions.ts" />
+    <TypeScriptCompile Include="External\Alina\NodeContext.ts" />
     <TypeScriptCompile Include="External\Alina\Slot.ts" />
     <TypeScriptCompile Include="External\Alina\Utils.ts" />
   </ItemGroup>

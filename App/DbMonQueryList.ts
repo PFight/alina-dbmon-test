@@ -1,7 +1,7 @@
 ﻿import { Alina } from "./Imports";
 import { Query, DbMonQuery } from "./DbMonQuery";
 
-export class DbMonQueryList extends Alina.SingleNodeComponent {  
+export class DbMonQueryList extends Alina.AlinaComponent {  
   template = Alina.makeTemplate(`
       @queryComponent
   `);

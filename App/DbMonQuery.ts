@@ -6,8 +6,7 @@ export interface Query {
   elapsedClassName: string;
 }
 
-export class DbMonQuery extends Alina.SingleNodeComponent {
-
+export class DbMonQuery extends Alina.AlinaComponent {
   template = Alina.makeTemplate(`
       <td class="Query @elapsedClass">
         @formatElapsed
