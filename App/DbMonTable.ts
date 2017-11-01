@@ -15,6 +15,15 @@ interface Sample {
   topFiveQueries: Query[];
 }
 
+class DisposeTestComponent extends Alina.AlinaComponent {
+  protected onInit() {
+    console.info("On init test component");
+  }
+  protected onDispose() {
+    console.info("On dispose test component");
+  }
+}
+
 function FuncLifeMeaning(root: Alina.Alina, value: string) {
   root.set(value, 42);
 }
@@ -52,7 +61,7 @@ class DbMonTable extends HTMLElement {
           You entered: @inputText
           <button onclick=@onStartStopClick >@startStopButtonText</button>
           <template id="blink">
-            <span>Blink</span>
+            <span id="test-dispose">Blink</span>
           </template>
           @life
         </div>
@@ -86,7 +95,9 @@ class DbMonTable extends HTMLElement {
     this.root.findNode("").ext(SuperExt).superQuery("input").once((input) => {
       input.nodeAs<HTMLInputElement>().style.color = "green";
     });
-    this.root.showIf("#blink", this.toggle);
+    this.root.showIf("#blink", this.toggle, (blink) => {
+      blink.query("#test-dispose").mount(DisposeTestComponent);
+    });
     this.root.call(FuncLifeMeaning, "@life");
 
     this.root.repeat("#row", this.databases, ((row, db) => {
