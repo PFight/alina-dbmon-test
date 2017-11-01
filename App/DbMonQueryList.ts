@@ -1,7 +1,13 @@
 ﻿import { Alina } from "./Imports";
 import { Query, DbMonQuery } from "./DbMonQuery";
+import { $LogService } from "./LogService";
 
-export class DbMonQueryList extends Alina.AlinaComponent {  
+export class DbMonQueryList extends Alina.AlinaComponent {
+  constructor(root: Alina.Alina, protected services: $LogService) {
+    super(root);
+    this.services.logService.log("Hello from QueryList");
+  }
+
   template = Alina.makeTemplate(`
       @queryComponent
   `);

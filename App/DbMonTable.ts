@@ -2,6 +2,7 @@ import { Alina } from "./Imports";
 import { Query } from "./DbMonQuery";
 import { DbMonQueryList } from "./DbMonQueryList";
 import { SuperExt } from "./SuperQueryExtension";
+import { LogService } from "./LogService";
 
 interface Database {
   dbname: string;
@@ -25,6 +26,9 @@ class DbMonTable extends HTMLElement {
   inputValue: string = "";
   started: boolean = true;
   timeout: number;
+  services = {
+    logService: new LogService()
+  };
 
   constructor() {
     super();
@@ -91,8 +95,9 @@ class DbMonTable extends HTMLElement {
       row.set("@queryCount", db.lastSample.nbQueries);
       row.set("@dbclass", this.toggle ? "dbtestclass1" : null);
       row.set("@dbclass2", this.toggle ? "dbtestclass2" : "");
-      
-      row.findNode("@queries").mount(DbMonQueryList).update(db.lastSample.topFiveQueries);
+
+      row.findNode("@queries").mount(DbMonQueryList, this.services)
+        .update(db.lastSample.topFiveQueries);
     }));
   }
 

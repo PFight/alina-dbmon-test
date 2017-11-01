@@ -6,7 +6,8 @@
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
     "noEmitHelpers": false,
-    "importHelpers":  false,
+    "importHelpers": false,
+    "strictFunctionTypes": true,
 		"lib": [ "es6", "dom" ]
 	},
   "include": [

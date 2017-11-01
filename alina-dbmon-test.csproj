@@ -10,7 +10,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
-    <TypeScriptToolsVersion>2.5</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>2.6</TypeScriptToolsVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -31,6 +31,7 @@
     <TypeScriptCompile Include="App\DbMonQueryList.ts" />
     <TypeScriptCompile Include="App\DbMonTable.ts" />
     <TypeScriptCompile Include="App\Imports.ts" />
+    <TypeScriptCompile Include="App\LogService.ts" />
     <TypeScriptCompile Include="App\SuperQueryExtension.ts" />
     <TypeScriptCompile Include="External\Alina\alina.ts" />
     <TypeScriptCompile Include="External\Alina\AlEntry.ts" />
@@ -41,6 +42,7 @@
     <TypeScriptCompile Include="External\Alina\AlSet.ts" />
     <TypeScriptCompile Include="External\Alina\AlShow.ts" />
     <TypeScriptCompile Include="External\Alina\Component.ts" />
+    <TypeScriptCompile Include="External\Alina\Main.ts" />
     <TypeScriptCompile Include="External\Alina\StandardExtensions.ts" />
     <TypeScriptCompile Include="External\Alina\NodeContext.ts" />
     <TypeScriptCompile Include="External\Alina\Slot.ts" />
