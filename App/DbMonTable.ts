@@ -43,9 +43,9 @@ class DbMonTable extends HTMLElement {
     super();
     this.databases = [];
     // this.template = document.getElementById("component-template");
-    this.appendChild(Alina.fromTemplate(this.template));
-    this.root = Alina.Document.create(this);
+    this.root = Alina.Document.create(Alina.fromTemplate(this.template));
     this.update();
+    this.appendChild(this.root.node);
 
     this.toggle = true;
     setInterval(() => {
@@ -92,7 +92,7 @@ class DbMonTable extends HTMLElement {
     this.root.query("input").on(this.toggle, (input) => {
       input.nodeAs<HTMLInputElement>().style.backgroundColor = this.toggle ? "white" : "yellow";
     });
-    this.root.findNode("").ext(SuperExt).superQuery("input").once((input) => {
+    this.root.ext(SuperExt).superQuery("input").once((input) => {
       input.nodeAs<HTMLInputElement>().style.color = "green";
     });
     this.root.showIf("#blink", this.toggle, (blink) => {

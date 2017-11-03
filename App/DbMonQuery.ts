@@ -18,7 +18,7 @@ export class DbMonQuery extends Alina.AlinaComponent {
   `);
 
   update(queryModel: Query) {
-    this.root.tpl().replace(this.template, (td) => {
+    this.replace(this.template, (td) => {
       td.set("@formatElapsed", queryModel.formatElapsed);
       td.set("@query", queryModel.query);
       td.set("@elapsedClass", queryModel.elapsedClassName);
